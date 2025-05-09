@@ -3,7 +3,7 @@ const cheerio = require('cheerio');
 const validator = require('html-validator');
 
 module.exports = async (req, res) => {
-	// CORS 헤더 설정
+	// CORS 헤더
 	res.setHeader('Access-Control-Allow-Credentials', true);
 	res.setHeader('Access-Control-Allow-Origin', '*');
 	res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,POST');
