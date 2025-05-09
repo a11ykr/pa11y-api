@@ -1,12 +1,15 @@
 {
   "version": 2,
-  "functions": {
-    "api/check.js": {
-      "memory": 1024,
-      "maxDuration": 30
-    }
-  },
+  "builds": [
+    { "src": "api/**/*.js", "use": "@vercel/node" }
+  ],
   "routes": [
-    { "src": "/api/check", "dest": "/api/check.js" }
-  ]
+    { "src": "/api/(.*)", "dest": "/api/$1" }
+  ],
+  "functions": {
+    "api/**/*.js": {
+      "memory": 3008,
+      "maxDuration": 60
+    }
+  }
 }

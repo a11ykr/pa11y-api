@@ -1,17 +1,17 @@
 {
   "name": "pa11y-api",
   "version": "1.0.0",
-  "description": "Serverless accessibility testing API using pa11y",
-  "main": "index.js",
+  "description": "A serverless API for pa11y accessibility testing",
+  "main": "api/check.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vercel dev"
   },
   "dependencies": {
     "pa11y": "^6.2.3",
-    "chrome-aws-lambda": "^10.1.0",
-    "puppeteer-core": "^10.4.0"
+    "puppeteer-core": "^10.4.0",
+    "chrome-aws-lambda": "^10.1.0"
   },
-  "engines": {
-    "node": "18.x"
+  "devDependencies": {
+    "vercel": "^28.0.0"
   }
 }
