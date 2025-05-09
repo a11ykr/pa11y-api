@@ -7,11 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "pa11y": "^6.0.0",
+    "pa11y": "^6.2.3",
     "chrome-aws-lambda": "^10.1.0",
-    "puppeteer-core": "^10.1.0"
+    "puppeteer-core": "^10.4.0"
   },
   "engines": {
-    "node": "22.x"
+    "node": "18.x"
   }
 }

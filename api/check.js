@@ -28,18 +28,32 @@ module.exports = async (req, res) => {
 
 		console.log(`접근성 검사 요청 받음: ${url}`);
 
-		// pa11y 실행
-		const results = await pa11y(url, {
-			browser: await chromium.puppeteer.launch({
-				args: chromium.args,
-				defaultViewport: chromium.defaultViewport,
-				executablePath: await chromium.executablePath,
-				headless: true,
-				ignoreHTTPSErrors: true,
-			}),
-			timeout: 30000,
-			wait: 1000
+		// Chromium 브라우저 설정
+		const browser = await chromium.puppeteer.launch({
+			args: chromium.args,
+			defaultViewport: chromium.defaultViewport,
+			executablePath: await chromium.executablePath,
+			headless: true,
+			ignoreHTTPSErrors: true,
 		});
+
+		// pa11y 실행 옵션
+		const options = {
+			browser: browser,
+			timeout: 30000,
+			wait: 1000,
+			log: {
+				debug: console.log,
+				error: console.error,
+				info: console.info
+			}
+		};
+
+		// pa11y 실행
+		const results = await pa11y(url, options);
+
+		// 브라우저 종료
+		await browser.close();
 
 		// 응답 반환
 		return res.status(200).json({
@@ -51,11 +65,13 @@ module.exports = async (req, res) => {
 		});
 	} catch (error) {
 		console.error(`오류 발생: ${error.message}`);
+		console.error(error.stack);
 
 		return res.status(500).json({
 			status: "error",
 			message: "접근성 검사 중 오류 발생",
-			error: error.message
+			error: error.message,
+			stack: error.stack
 		});
 	}
 };
