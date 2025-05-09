@@ -1,6 +1,9 @@
 {
   "version": 2,
+  "builds": [
+    { "src": "api/check.js", "use": "@vercel/node" }
+  ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "/api" }
+    { "src": "/api/check", "dest": "/api/check.js" }
   ]
 }

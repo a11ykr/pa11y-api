@@ -1,11 +1,10 @@
 {
   "name": "pa11y-api",
   "version": "1.0.0",
-  "description": "A lightweight accessibility checking API for Vercel",
+  "description": "Simple accessibility checking API",
   "main": "api/check.js",
   "dependencies": {
     "axios": "^0.24.0",
-    "html-validator": "^6.0.0",
     "cheerio": "^1.0.0-rc.10"
   }
 }
