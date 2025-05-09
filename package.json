@@ -1,0 +1,17 @@
+{
+  "name": "pa11y-api",
+  "version": "1.0.0",
+  "description": "Serverless accessibility testing API using pa11y",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "pa11y": "^6.0.0",
+    "chrome-aws-lambda": "^10.1.0",
+    "puppeteer-core": "^10.1.0"
+  },
+  "engines": {
+    "node": "14.x"
+  }
+}
